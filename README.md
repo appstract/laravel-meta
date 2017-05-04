@@ -49,19 +49,19 @@ class Book extends Model
 Then you can get, add, update and delete meta to the model.
 
 ```php
-$user = User::find(1);
+$book = Book::find(1);
 
-$user->addMeta('someKey', 'someValue');
+$book->addMeta('someKey', 'someValue');
 
-$user->getMeta('someKey');
+$book->getMeta('someKey');
 
-$user->updateMeta('someKey', 'anotherValue');
+$book->updateMeta('someKey', 'anotherValue');
 
-$user->deleteMeta('someKey');
+$book->deleteMeta('someKey');
 
-$user->getAllMeta();
+$book->getAllMeta();
 
-$user->deleteAllMeta();
+$book->deleteAllMeta();
 ```
 
 ## Testing
