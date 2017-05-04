@@ -22,9 +22,6 @@
         "phpunit/phpunit": "^5.7"
     },
     "autoload": {
-        "files": [
-            "src/helpers.php"
-        ],
         "psr-4": {
             "Appstract\\Meta\\": "src"
         }
