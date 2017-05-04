@@ -33,6 +33,27 @@ class Meta extends Model
     ];
 
     /**
+     * Get value.
+     *
+     * @param  string $value
+     * @return mixed
+     */
+    public function getValueAttribute($value)
+    {
+        return json_decode($value);
+    }
+
+    /**
+     * Set value.
+     *
+     * @param mixed $value
+     */
+    public function setValueAttribute($value)
+    {
+        $this->attributes['value'] = json_encode($value);
+    }
+
+    /**
      * Relation.
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
