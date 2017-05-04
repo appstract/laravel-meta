@@ -35,7 +35,34 @@ By running `php artisan vendor:publish --provider="Appstract\Meta\MetaServicePro
 
 ## Usage
 
-//
+You can easily add Meta to an Eloquent model. Just add this to your model:
+
+```php
+use Appstract\Meta\Metable;
+
+class Book extends Model
+{
+    use Metable;
+}
+```
+
+Then you can get, add, update and delete meta to the model.
+
+```php
+$user = User::find(1);
+
+$user->addMeta('someKey', 'someValue');
+
+$user->getMeta('someKey');
+
+$user->updateMeta('someKey', 'anotherValue');
+
+$user->deleteMeta('someKey');
+
+$user->getAllMeta();
+
+$user->deleteAllMeta();
+```
 
 ## Testing
 
