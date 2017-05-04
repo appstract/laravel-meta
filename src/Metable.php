@@ -25,7 +25,7 @@ trait Metable
     {
         $meta = $this->meta()->where('key', $key)->get();
 
-        if($meta->count() <= 1) {
+        if ($meta->count() <= 1) {
             return $meta->count() == 1 ? $meta->first() : $default;
         }
 
@@ -51,11 +51,11 @@ trait Metable
      *
      * @param  string $key
      * @param  mixed $value
-     * @return object|boolean
+     * @return object|bool
      */
     public function updateMeta($key, $value)
     {
-        if($meta = $this->getMeta($key)) {
+        if ($meta = $this->getMeta($key)) {
             $meta->value = $value;
 
             return $meta->save();

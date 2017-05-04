@@ -14,14 +14,14 @@ class Meta extends Model
     protected $table = 'meta';
 
     /**
-     * No timestamps for meta data
+     * No timestamps for meta data.
      *
      * @var bool
      */
     public $timestamps = false;
 
     /**
-     * Defining fillable attributes on the model
+     * Defining fillable attributes on the model.
      *
      * @var array
      */
