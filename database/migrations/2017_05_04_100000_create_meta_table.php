@@ -18,7 +18,7 @@ class CreateMetaTable extends Migration
             $table->integer('metable_id')->unsigned();
             $table->string('metable_type');
             $table->string('key');
-            $table->json('value');
+            $table->text('value');
 
             $table->index('metable_id');
             $table->index('key');
