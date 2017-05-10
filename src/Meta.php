@@ -14,6 +14,15 @@ class Meta extends Model
     protected $table = 'meta';
 
     /**
+     * Casts.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'value' => 'array',
+    ];
+
+    /**
      * No timestamps for meta data.
      *
      * @var bool
@@ -31,27 +40,6 @@ class Meta extends Model
         'key',
         'value',
     ];
-
-    /**
-     * Get value.
-     *
-     * @param  string $value
-     * @return mixed
-     */
-    public function getValueAttribute($value)
-    {
-        return json_decode($value);
-    }
-
-    /**
-     * Set value.
-     *
-     * @param mixed $value
-     */
-    public function setValueAttribute($value)
-    {
-        $this->attributes['value'] = json_encode($value);
-    }
 
     /**
      * Relation.
