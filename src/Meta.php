@@ -19,7 +19,7 @@ class Meta extends Model
      * @var array
      */
     protected $casts = [
-        'value' => 'array',
+        'value' => 'json',
     ];
 
     /**
