@@ -15,6 +15,19 @@ trait Metable
     }
 
     /**
+     * Has meta.
+     *
+     * @param  string $key
+     * @return bool
+     */
+    public function hasMeta($key)
+    {
+        $meta = $this->meta()->where('key', $key)->get();
+
+        return (bool) count($meta);
+    }
+
+    /**
      * Get meta.
      *
      * @param  string $key

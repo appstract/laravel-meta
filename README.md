@@ -55,6 +55,8 @@ $book->addMeta('someKey', 'someValue');
 
 $book->getMeta('someKey');
 
+$book->hasMeta('someKey');
+
 $book->updateMeta('someKey', 'anotherValue');
 
 $book->deleteMeta('someKey');
