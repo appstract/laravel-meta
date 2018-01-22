@@ -15,20 +15,6 @@ You can install the package via composer:
 composer require appstract/laravel-meta
 ```
 
-### Provider
-
-Then add the ServiceProvider to your `config/app.php` file:
-
-```php
-'providers' => [
-    ...
-
-    Appstract\Meta\MetaServiceProvider::class
-
-    ...
-]
-```
-
 ### Publish, migrate
 
 By running `php artisan vendor:publish --provider="Appstract\Meta\MetaServiceProvider"` in your project all files for this package will be published. For this package, it's only a migration. Run `php artisan migrate` to migrate the table. There will now be an `meta` table in your database.
