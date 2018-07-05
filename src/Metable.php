@@ -78,6 +78,17 @@ trait Metable
     }
 
     /**
+     * Add meta, or update if it already exists.
+     * @param  string $key
+     * @param  mixed $value
+     * @return object|bool
+     */
+    public function addOrUpdateMeta($key, $value)
+    {
+        return $this->hasMeta($key) ? $this->updateMeta($key, $value) : $this->addMeta($key, $value);
+    }
+
+    /**
      * Delete meta.
      *
      * @param  string $key
