@@ -11,7 +11,7 @@ trait Metable
      */
     public function getAllMeta()
     {
-        return collect($this->meta->pluck('value', 'key'));
+        return collect($this->meta()->pluck('value', 'key'));
     }
 
     /**
