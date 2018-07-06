@@ -78,7 +78,7 @@ trait Metable
     }
 
     /**
-     * Add meta, or update if it already exists.
+     * Add or update meta if it already exists.
      * @param  string $key
      * @param  mixed $value
      * @return object|bool
