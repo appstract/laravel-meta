@@ -11,7 +11,7 @@ trait Metable
      */
     public function getAllMeta()
     {
-        return collect($this->meta->pluck('value', 'key'));
+        return collect($this->meta()->pluck('value', 'key'));
     }
 
     /**
@@ -75,6 +75,17 @@ trait Metable
         }
 
         return false;
+    }
+
+    /**
+     * Add or update meta if it already exists.
+     * @param  string $key
+     * @param  mixed $value
+     * @return object|bool
+     */
+    public function addOrUpdateMeta($key, $value)
+    {
+        return $this->hasMeta($key) ? $this->updateMeta($key, $value) : $this->addMeta($key, $value);
     }
 
     /**
