@@ -36,13 +36,11 @@ trait Metable
      */
     public function getMeta($key, $default = null)
     {
-        $meta = $this->meta()->where('key', $key)->get();
-
-        if ($meta->count() <= 1) {
-            return $meta->count() == 1 ? $meta->first() : $default;
+        if ($meta = $this->meta()->where('key', $key)->first()) {
+            return $meta;
         }
 
-        return $meta;
+        return $default;
     }
 
     /**
