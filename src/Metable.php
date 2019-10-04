@@ -42,6 +42,17 @@ trait Metable
 
         return $default;
     }
+    
+    /**
+     * Get meta value.
+     *
+     * @param  string $key
+     * @return object
+     */
+    public function getMetaValue($key)
+    {
+        return $this->hasMeta($key) ? $this->getMeta($key)->value : null;
+    }
 
     /**
      * Add meta.
