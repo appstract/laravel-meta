@@ -41,6 +41,8 @@ $book->addMeta('someKey', 'someValue');
 
 $book->getMeta('someKey');
 
+$book->getMetaValue('someKey');
+
 $book->hasMeta('someKey');
 
 $book->updateMeta('someKey', 'anotherValue');
