@@ -42,7 +42,7 @@ trait Metable
 
         return $default;
     }
-    
+
     /**
      * Get meta value.
      *
