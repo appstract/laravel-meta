@@ -62,10 +62,12 @@ trait Metable
      */
     public function addMeta($key, $value)
     {
-        return $this->meta()->create([
-            'key'   => $key,
-            'value' => $value,
-        ]);
+        if ($this->meta()->where('key', $key)->count()) {
+            return $this->meta()->create([
+                'key'   => $key,
+                'value' => $value,
+            ]);
+        }
     }
 
     /**
