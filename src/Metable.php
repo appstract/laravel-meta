@@ -82,7 +82,7 @@ trait Metable
     public function updateMeta($key, $value)
     {
         if ($meta = $this->getMeta($key)) {
-            return $meta->update(['value' => $value])
+            return $meta->update(['value' => $value]);
         }
 
         return false;
