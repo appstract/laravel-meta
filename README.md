@@ -17,7 +17,7 @@ composer require appstract/laravel-meta
 
 ### Publish, migrate
 
-By running `php artisan vendor:publish --provider="Appstract\Meta\MetaServiceProvider"` in your project all files for this package will be published. For this package, it's only a migration. Run `php artisan migrate` to migrate the table. There will now be an `meta` table in your database.
+By running `php artisan vendor:publish --provider="Appstract\Meta\MetaServiceProvider"` in your project all files for this package will be published. For this package, it's only a migration. Run `php artisan migrate` to migrate the table. There will now be a table named `metas` in your database.
 
 ## Usage
 
