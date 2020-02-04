@@ -22,9 +22,7 @@ trait Metable
      */
     public function hasMeta($key)
     {
-        $meta = $this->meta()->where('key', $key)->get();
-
-        return (bool) count($meta);
+        return (bool) $this->meta()->where('key', $key)->count();
     }
 
     /**
@@ -51,7 +49,9 @@ trait Metable
      */
     public function getMetaValue($key)
     {
-        return $this->hasMeta($key) ? $this->getMeta($key)->value : null;
+        if($meta = $this->getMeta($key)) {
+            return $meta->value;
+        }
     }
 
     /**
@@ -62,12 +62,14 @@ trait Metable
      */
     public function addMeta($key, $value)
     {
-        if ($this->meta()->where('key', $key)->count()) {
-            return $this->meta()->create([
-                'key'   => $key,
-                'value' => $value,
-            ]);
+        if ($this->hasMeta($key)) {
+            return false;
         }
+
+        return $this->meta()->create([
+            'key'   => $key,
+            'value' => $value,
+        ]);
     }
 
     /**
@@ -80,9 +82,7 @@ trait Metable
     public function updateMeta($key, $value)
     {
         if ($meta = $this->getMeta($key)) {
-            $meta->value = $value;
-
-            return $meta->save();
+            return $meta->update(['value' => $value])
         }
 
         return false;
@@ -90,13 +90,18 @@ trait Metable
 
     /**
      * Add or update meta if it already exists.
+     *
      * @param  string $key
      * @param  mixed $value
      * @return object|bool
      */
     public function addOrUpdateMeta($key, $value)
     {
-        return $this->hasMeta($key) ? $this->updateMeta($key, $value) : $this->addMeta($key, $value);
+        if ($this->hasMeta($key)) {
+            return $this->updateMeta($key, $value);
+        }
+
+        return $this->addMeta($key, $value);
     }
 
     /**
@@ -106,11 +111,9 @@ trait Metable
      * @param  mixed $value
      * @return bool
      */
-    public function deleteMeta($key, $value = null)
+    public function deleteMeta($key)
     {
-        return $value
-            ? $this->meta()->where('key', $key)->where('value', $value)->delete()
-            : $this->meta()->where('key', $key)->delete();
+        return $this->meta()->where('key', $key)->delete();
     }
 
     /**

@@ -6,8 +6,6 @@ use Illuminate\Support\ServiceProvider;
 
 class MetaServiceProvider extends ServiceProvider
 {
-    protected $Meta;
-
     /**
      * Bootstrap the application services.
      */
