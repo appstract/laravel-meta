@@ -49,7 +49,7 @@ trait Metable
      */
     public function getMetaValue($key)
     {
-        if($meta = $this->getMeta($key)) {
+        if ($meta = $this->getMeta($key)) {
             return $meta->value;
         }
     }
