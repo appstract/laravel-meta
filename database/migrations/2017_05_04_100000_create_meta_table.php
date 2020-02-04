@@ -13,7 +13,7 @@ class CreateMetaTable extends Migration
      */
     public function up()
     {
-        Schema::create('meta', function (Blueprint $table) {
+        Schema::create('metas', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('metable_id')->unsigned();
             $table->string('metable_type');
@@ -32,6 +32,6 @@ class CreateMetaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('meta');
+        Schema::dropIfExists('metas');
     }
 }
