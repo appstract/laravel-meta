@@ -1,4 +1,4 @@
-# Laravel Meta
+# Laravel 
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/appstract/laravel-meta.svg?style=flat-square)](https://packagist.org/packages/appstract/laravel-meta)
 [![Total Downloads](https://img.shields.io/packagist/dt/appstract/laravel-meta.svg?style=flat-square)](https://packagist.org/packages/appstract/laravel-meta)
