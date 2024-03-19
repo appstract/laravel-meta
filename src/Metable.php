@@ -51,7 +51,11 @@ trait Metable
      */
     public function getMetaValue($key)
     {
-        return $this->hasMeta($key) ? $this->getMeta($key)->value : null;
+        if ($meta = $this->getMeta($key)) {
+            return $meta->value;
+        }
+
+        return null;
     }
 
     /**
